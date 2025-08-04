@@ -53,7 +53,7 @@ Required columns:
 1. Install dependencies:
 
 ```bash
-pip install pandas matplotlib seaborn scikit-learn streamlit
+pip install streamlit pandas scikit-learn matplotlib seaborn plotly
 ```
 
 2. Run the app:
