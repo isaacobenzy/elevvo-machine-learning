@@ -87,7 +87,7 @@ if uploaded_file is not None:
         st.download_button(
             label="📥 Download Clustered Data",
             data=df.to_csv(index=False).encode('utf-8'),
-            file_name='clustered_customers.csv',
+            file_name='clustered_customers_predictions.csv',
             mime='text/csv'
         )
 
