@@ -5,9 +5,10 @@ Sure! Here's a **professional and clear README** for your **Student Final Score 
 ## 📚 Student Final Score Predictor
 
 A machine learning project that predicts a student's **final exam score** based on key factors like study hours, sleep, class participation, and previous scores. This project is part of a Level 1 Machine Learning internship task.
-
+---
 You can find it at https://github.com/elevvo-machine-learning/Task1/blob/main/README.md 
-And test it via this link : https://student-score-ikedid.streamlit.app/
+---
+ Test it via this link : https://student-score-ikedid.streamlit.app/
 ---
 
 ### 🚀 Features
