@@ -1,0 +1,104 @@
+
+## 🛍️ Mall Customer Segmentation App
+
+A Streamlit-powered machine learning web app that performs **customer segmentation** using **K-Means clustering** and **DBSCAN**. Designed for visual exploration and business insight, this tool helps group mall customers based on features like **annual income** and **spending score**.
+
+---
+
+### 📦 Features
+
+* 🔁 **Upload any compatible dataset** with customer features
+* 🎛️ **Select numeric features** for clustering (2D projection)
+* 📉 **Elbow method** to estimate the optimal number of clusters
+* 🎨 **Interactive cluster visualization**
+* 📋 **View average metrics per cluster**
+* 🧪 **Bonus:** Try DBSCAN for density-based clustering
+* 📥 **Export** clustered data to CSV
+
+---
+
+### 🧠 Learning Outcomes
+
+This task helps you understand and apply:
+
+* Unsupervised Learning
+* Feature scaling and preprocessing
+* K-Means and DBSCAN clustering algorithms
+* Elbow method (inertia-based selection)
+* 2D visualization using Seaborn and Matplotlib
+
+---
+
+### 🛠️ Tech Stack
+
+| Tool/Library                | Purpose               |
+| --------------------------- | --------------------- |
+| **Python**                  | Programming language  |
+| **Pandas**                  | Data manipulation     |
+| **Seaborn**, **Matplotlib** | Visualization         |
+| **Scikit-learn**            | Clustering algorithms |
+| **Streamlit**               | Interactive web UI    |
+
+---
+
+### 📁 Dataset
+
+* **Name:** Mall Customer Segmentation Data
+* **Source:** [Kaggle](https://www.kaggle.com/vjchoudhary7/customer-segmentation-tutorial-in-python)
+* **Columns Typically Included:**
+
+  * `CustomerID`
+  * `Gender`
+  * `Age`
+  * `Annual Income (k$)`
+  * `Spending Score (1-100)`
+
+---
+
+### 💻 How to Run
+
+1. Install dependencies:
+
+```bash
+pip install streamlit pandas matplotlib seaborn scikit-learn
+```
+
+2. Run the app:
+
+```bash
+streamlit run customer_segmentation_app.py
+```
+
+3. Upload your dataset and interactively explore the customer segments.
+
+---
+
+### 🧪 Example Use Case
+
+A marketing analyst or retail manager can use this tool to:
+
+* Group customers into segments for targeted campaigns
+* Identify high-value vs. low-engagement customers
+* Understand income vs. spending behavior patterns
+
+---
+
+### 📸 Optional: Add Screenshots
+
+> Include screenshots of the cluster visualizations or the Elbow method graph for a visual preview on GitHub.
+
+---
+
+### 📈 Future Enhancements
+
+* Add PCA for dimensionality reduction before clustering
+* Allow multi-feature 3D scatter plot (with `plotly`)
+* Enable interactive filtering per cluster
+* Deploy online using **Streamlit Cloud**
+
+---
+
+### 📝 License
+
+This project is free to use under the [MIT License](LICENSE).
+
