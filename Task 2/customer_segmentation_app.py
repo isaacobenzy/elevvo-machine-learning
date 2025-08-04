@@ -6,6 +6,7 @@ import streamlit as st
 from sklearn.cluster import KMeans, DBSCAN
 from sklearn.preprocessing import StandardScaler
 
+# Streamlit setup
 st.set_page_config(page_title="🛍️ Customer Segmentation", layout="centered")
 st.title("🛍️ Mall Customer Segmentation App")
 
@@ -15,6 +16,18 @@ uploaded_file = st.sidebar.file_uploader("Upload your CSV file", type=["csv"])
 
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
+    df.dropna(inplace=True)
+
+    # Basic dataset validation
+    if df.shape[0] < 10:
+        st.error("⚠️ Dataset is too small (fewer than 10 rows). Please upload a larger dataset.")
+        st.stop()
+    
+    numeric_cols = df.select_dtypes(include=["number"]).columns.tolist()
+    if len(numeric_cols) < 2:
+        st.error("⚠️ Dataset must have at least 2 numeric columns for clustering. Please upload a valid dataset.")
+        st.stop()
+
     st.subheader("📊 Raw Data Preview")
     st.write(df.head())
 
@@ -22,19 +35,51 @@ if uploaded_file is not None:
     st.subheader("📈 Data Overview")
     st.write(df.describe())
 
-    # Feature selection
-    st.subheader("🔧 Select Features for Clustering")
-    numeric_cols = df.select_dtypes(include=['number']).columns.tolist()
+    # Expected columns for clustering
+    required_columns = {
+        "AnnualIncome": None,
+        "SpendingScore": None
+    }
 
-    selected_features = st.multiselect(
-        "Pick two numeric features (ideally: income & spending score)",
-        numeric_cols,
-        default=["Annual Income (k$)", "Spending Score (1-100)"]
-    )
+    df_cols = df.columns.tolist()
 
-    if len(selected_features) != 2:
-        st.warning("Please select exactly two features for 2D clustering.")
-    else:
+    # Column mapping form (popup-like)
+    with st.form(key="column_mapping_form"):
+        st.subheader("🗂️ Map Your Columns")
+        st.write("Please map your dataset columns to the required fields for clustering (e.g., income and spending score).")
+        
+        for col in required_columns:
+            required_columns[col] = st.selectbox(
+                f"Select column for '{col}':",
+                options=[None] + df_cols,
+                key=f"map_{col}"
+            )
+        
+        submit_mapping = st.form_submit_button("Confirm Column Mapping")
+
+    if submit_mapping:
+        # Validate all required columns are mapped
+        if None in required_columns.values():
+            st.error("⚠️ Please map all required columns before proceeding.")
+            st.stop()
+
+        # Check if mapped columns are valid (exist and are numeric)
+        for key, val in required_columns.items():
+            if val not in df_cols:
+                st.error(f"⚠️ Mapped column '{val}' for '{key}' does not exist in the dataset.")
+                st.stop()
+            if df[val].dtype not in [np.float64, np.int64]:
+                st.error(f"⚠️ Column '{val}' mapped to '{key}' must be numeric for clustering.")
+                st.stop()
+
+        # Rename columns in the dataframe based on user mapping
+        for key, val in required_columns.items():
+            df[key] = df[val]
+            if val != key:
+                df.drop(columns=[val], inplace=True)
+
+        # Feature selection
+        selected_features = ["AnnualIncome", "SpendingScore"]
         X = df[selected_features]
         scaler = StandardScaler()
         X_scaled = scaler.fit_transform(X)
@@ -76,6 +121,8 @@ if uploaded_file is not None:
             ax=ax
         )
         ax.set_title(f"Customer Segmentation (k={k})")
+        ax.set_xlabel(selected_features[0])
+        ax.set_ylabel(selected_features[1])
         st.pyplot(fig)
 
         # Cluster Insights
@@ -111,6 +158,8 @@ if uploaded_file is not None:
             ax=ax
         )
         ax.set_title("DBSCAN Clustering")
+        ax.set_xlabel(selected_features[0])
+        ax.set_ylabel(selected_features[1])
         st.pyplot(fig)
 
 else:
