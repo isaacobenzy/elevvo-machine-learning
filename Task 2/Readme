@@ -54,13 +54,16 @@ This task helps you understand and apply:
   * `Spending Score (1-100)`
 
 ---
+You can find it at https://github.com/elevvo-machine-learning/Task1/blob/main/README.md 
 
+
+And test it via this link : https://student-score-ikedid.streamlit.app/
 ### 💻 How to Run
 
 1. Install dependencies:
 
 ```bash
-pip install streamlit pandas matplotlib seaborn scikit-learn
+pip install -r requirements.txt
 ```
 
 2. Run the app:
@@ -85,8 +88,12 @@ A marketing analyst or retail manager can use this tool to:
 
 ### 📸 Optional: Add Screenshots
 
-> Include screenshots of the cluster visualizations or the Elbow method graph for a visual preview on GitHub.
-
+> ![Interface Screenshot](Screenshots/screenshot1.png)
+> ![uploaded dataset](Screenshots/screenshot2.png)
+> ![App Screenshot](Screenshots/screenshot3.png)
+> ![Columns Marching](Screenshots/screenshot4.png)
+> ![App Screenshot](Screenshots/screenshot5.png)
+> ![Results screenshots](Screenshots/screenshot6.png)
 ---
 
 ### 📈 Future Enhancements
