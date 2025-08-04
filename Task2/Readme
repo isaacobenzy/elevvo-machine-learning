@@ -54,10 +54,10 @@ This task helps you understand and apply:
   * `Spending Score (1-100)`
 
 ---
-You can find it at https://github.com/elevvo-machine-learning/Task1/blob/main/README.md 
+You can find it at https://github.com/elevvo-machine-learning/Task2/blob/main/README.md 
 
 
-And test it via this link : https://student-score-ikedid.streamlit.app/
+And test it via this link : https://customer-segmentation-ikedid.streamlit.app/
 ### 💻 How to Run
 
 1. Install dependencies:
