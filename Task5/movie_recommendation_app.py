@@ -533,7 +533,10 @@ def main():
             
             # Display recommendations
             for i, (movie_id, score) in enumerate(recommendations, 1):
-                movie_info = movie_details[movie_details['movie_id'] == movie_id].iloc[0]
+                movie_matches = movie_details[movie_details['movie_id'] == movie_id]
+                if movie_matches.empty:
+                    continue  # Skip if movie details not found
+                movie_info = movie_matches.iloc[0]
                 
                 with st.container():
                     col1, col2, col3 = st.columns([1, 3, 1])

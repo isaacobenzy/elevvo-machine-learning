@@ -144,6 +144,15 @@ class LoanApprovalPredictor:
         X['Income_to_Loan_Ratio'] = X['Total_Income'] / (X['LoanAmount'] + 1)  # Add 1 to avoid division by zero
         X['Loan_Amount_per_Term'] = X['LoanAmount'] / (X['Loan_Amount_Term'] + 1)
         
+        # Handle infinite and NaN values
+        X = X.replace([np.inf, -np.inf], np.nan)
+        X = X.fillna(X.median())
+        
+        # Ensure all values are finite
+        for col in X.columns:
+            if X[col].dtype in ['float64', 'int64']:
+                X[col] = np.clip(X[col], -1e10, 1e10)  # Clip extreme values
+        
         self.feature_names = X.columns.tolist()
         
         # Scale features

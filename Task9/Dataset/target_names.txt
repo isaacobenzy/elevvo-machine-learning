@@ -1,0 +1,6 @@
+Next_Close
+Price_Change
+Price_Change_Pct
+Price_Up
+Strong_Up
+Strong_Down
