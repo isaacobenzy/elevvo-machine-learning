@@ -1,0 +1,137 @@
+Level 1 Tasks
+Task 1: Student Score Prediction
+
+Requirements:
+
+Data cleaning & visualization.
+
+Split dataset into train/test sets.
+
+Train a Linear Regression model to predict exam scores.
+
+Visualize predictions & evaluate performance.
+
+Dataset (Recommended):
+Student Performance Factors – Kaggle
+
+Bonus: Polynomial regression, try different feature combinations (e.g., sleep, participation).
+
+Task 2: Customer Segmentation
+
+Requirements:
+
+Perform scaling & visual exploration.
+
+Apply K-Means clustering and find optimal k.
+
+Visualize clusters in 2D.
+
+Dataset (Recommended):
+Mall Customer Dataset – Kaggle
+
+Bonus: Try DBSCAN, analyze average spending per cluster.
+
+Level 2 Tasks
+Task 3: Forest Cover Type Classification
+
+Requirements:
+
+Predict type of forest cover using environmental features.
+
+Preprocess categorical features.
+
+Train multi-class classifiers (e.g., Random Forest, XGBoost).
+
+Evaluate with confusion matrix & feature importance.
+
+Dataset (Recommended):
+Covertype – UCI Machine Learning Repository
+
+Bonus: Model comparison, hyperparameter tuning.
+
+Task 4: Loan Approval Prediction
+
+Requirements:
+
+Predict loan approval status.
+
+Handle missing values, encode categorical features.
+
+Train classifier & evaluate on imbalanced data.
+
+Focus on precision, recall, F1-score.
+
+Dataset (Recommended):
+Loan Approval Prediction Dataset – Kaggle
+
+Bonus: Use SMOTE, compare logistic regression vs decision tree.
+
+Task 5: Movie Recommendation System
+
+Requirements:
+
+Build recommender using user-item similarity.
+
+Compute similarity & recommend top-rated unseen movies.
+
+Evaluate with Precision@K.
+
+Dataset (Recommended):
+MovieLens 100K Dataset – Kaggle
+
+Bonus: Implement item-based collaborative filtering, matrix factorization (SVD).
+
+Task 6: Music Genre Classification
+
+Requirements:
+
+Classify songs into genres using audio features (MFCCs) or spectrograms.
+
+Preprocess features with Librosa.
+
+Train multi-class model (ML or CNN).
+
+Dataset (Recommended):
+GTZAN Music Genre Dataset – Kaggle
+
+Bonus: Try tabular vs image-based approaches, transfer learning.
+
+Level 3 Tasks
+Task 7: Sales Forecasting
+
+Requirements:
+
+Predict future sales using historical data.
+
+Create time-based features (lag, month, rolling averages).
+
+Apply regression models & compare results.
+
+Plot actual vs predicted.
+
+Dataset (Recommended):
+Walmart Sales Forecast Dataset – Kaggle
+
+Bonus: Seasonal decomposition, use XGBoost/LightGBM with time-aware validation.
+
+Industry-Level Tasks
+Task 8: Traffic Sign Recognition
+
+Requirements:
+
+Classify traffic signs from images using CNN.
+
+Preprocess images (resize, normalize).
+
+Train CNN & evaluate with accuracy & confusion matrix.
+
+Dataset (Recommended):
+GTSRB – German Traffic Sign Recognition Benchmark (Kaggle)
+
+Bonus: Add data augmentation, compare custom CNN vs pre-trained (e.g., MobileNet).
+
+✅ Tools & Libraries across tasks:
+
+Python, Pandas, NumPy, Matplotlib, Scikit-learn
+
+(Advanced) Keras, TensorFlow, XGBoost, Librosa, OpenCV
